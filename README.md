@@ -1,6 +1,6 @@
 # Warframe Tracker app
 
-##Description
+## Description
 
 	App that notifies a user of events and invasions in warframe using the
 	warframe worldstate API (http://content.ps4.warframe.com/dynamic/worldState.php)
@@ -11,21 +11,21 @@
 	the nexus-stats and/or warframe.market
 
 ## Goals (^important)
-	*Be notified for specif events rewards (recieve notification for every
+	* Be notified for specif events rewards (recieve notification for every
 	invasion that can give a mutalist nav coord / mod / nitain exract / etc)
 
-	*Create an offline libraby for possible mods or drops (may require internet
+	* Create an offline libraby for possible mods or drops (may require internet
 	at first to fetch data, kept afterwards)
 	
-	*Add value for tradable items by fetching from nexus-stats and/or .market
+	* Add value for tradable items by fetching from nexus-stats and/or .market
 
-	*Allow to switch from PS4 alerts to PC alerts
+	* Allow to switch from PS4 alerts to PC alerts
 
-	*_Lead_: Allow to quickly sell items on the market
+	* _Lead_: Allow to quickly sell items on the market
 
-	*_Lead_: Keep inventory of Prime parts belonging to an account
+	* _Lead_: Keep inventory of Prime parts belonging to an account
 
-	*_Lead_: Keep posted on extractor status
+	* _Lead_: Keep posted on extractor status
 
 ## APIs
 	*Warframe docs: https://docs.warframestat.us/#tag/warframe
