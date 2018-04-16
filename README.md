@@ -11,16 +11,26 @@
 	the nexus-stats and/or warframe.market
 
 ## Goals (^important)
-	* Be notified for specif events rewards (recieve notification for every invasion that can give a mutalist nav coord / mod / nitain exract / etc)
-	* Create an offline libraby for possible mods or drops (may require internet at first to fetch data, kept afterwards)
+	* Be notified for specif events rewards (recieve notification for every
+	invasion that can give a mutalist nav coord / mod / nitain exract / etc)
+	
+	* Create an offline libraby for possible mods or drops (may require
+	internet at first to fetch data, kept afterwards)
+	
 	* Add value for tradable items by fetching from nexus-stats and/or .market
+	
 	* Allow to switch from PS4 alerts to PC alerts
-	* _Lead_ : Allow to quickly sell items on the market
-	* _Lead_ : Keep inventory of Prime parts belonging to an account
-	* _Lead_ : Keep posted on extractor status
+	
+	* *Lead* : Allow to quickly sell items on the market
+	
+	* *Lead* : Keep inventory of Prime parts belonging to an account
+	
+	* *Lead* : Keep posted on extractor status
 
 ## APIs
-	*Warframe docs: https://docs.warframestat.us/#tag/warframe
-	*Nexus-stats: https://nexus-stats.com/api
-	*World state: http://content.ps4.warframe.com/dynamic/worldState.php
-	*Database: https://api.warframestat.us/weapons
+	* Warframe docs:	https://docs.warframestat.us/#tag/warframe
+	* Nexus-stats: 		https://nexus-stats.com/api
+	* World state: 		http://content.ps4.warframe.com/dynamic/worldState.php
+	* Database: 		https://api.warframestat.us/weapons
+	
+**Mockup available in docs folder**

@@ -1,36 +1,29 @@
 package com.example.benjvdb.warframetracker
 
-import android.app.Fragment
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.home_screen.*
 
 
-class MainScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class Add_Trigger_1 : AppCompatActivity() {
 
-    private lateinit var mDrawerlayout: DrawerLayout
+    lateinit var mDrawerlayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.home_screen)
+        setContentView(R.layout.activity_main_screen)
 
         var toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        var actionbar: ActionBar? = supportActionBar
+        var actionbar: ActionBar? = getSupportActionBar()
         actionbar?.setDisplayHomeAsUpEnabled(true)
         actionbar?.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp)
 
         mDrawerlayout = findViewById(R.id.drawer_layout)
-
-        var navigationView: NavigationView = findViewById(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -41,17 +34,5 @@ class MainScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
             }
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_triggers -> {
-                val intent = Intent(this, Add_Trigger_1::class.java)
-                startActivity(intent)
-            }
-            else -> {
-                //hello
-            }
-        }
     }
 }

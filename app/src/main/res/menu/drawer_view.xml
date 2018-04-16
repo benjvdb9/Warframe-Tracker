@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id= "@+id/nav_events"
+            android:icon= "@drawable/ic_event_black_24dp"
+            android:title= "Events"/>
+        <item
+            android:id= "@+id/nav_triggers"
+            android:icon= "@drawable/ic_alarm_black_24dp"
+            android:title= "Triggers"/>
+        <item
+            android:id= "@+id/nav_database"
+            android:icon= "@drawable/ic_library_books_black_24dp"
+            android:title= "Database"/>
+        <item
+            android:id= "@+id/nav_extractors"
+            android:icon= "@drawable/ic_add_alert_black_24dp"
+            android:title= "Extractors"/>
+    </group>
+</menu>
