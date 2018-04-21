@@ -1,6 +1,5 @@
 package com.example.benjvdb.warframetracker
 
-import android.app.Fragment
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -10,16 +9,15 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.home_screen.*
 
 
-class MainScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var mDrawerlayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.home_screen)
+        setContentView(R.layout.MainScreen)
 
         var toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -48,9 +46,10 @@ class MainScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
             R.id.nav_triggers -> {
                 val intent = Intent(this, Add_Trigger_1::class.java)
                 startActivity(intent)
+                return true
             }
             else -> {
-                //hello
+                return false
             }
         }
     }
