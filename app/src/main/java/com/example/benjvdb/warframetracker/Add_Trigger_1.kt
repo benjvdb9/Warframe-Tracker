@@ -15,7 +15,7 @@ class Add_Trigger_1 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.Add_Trigger_1)
+        setContentView(R.layout.add_trigger_1)
 
         var toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)

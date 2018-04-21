@@ -17,7 +17,7 @@ class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelected
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.MainScreen)
+        setContentView(R.layout.mainscreen)
 
         var toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
