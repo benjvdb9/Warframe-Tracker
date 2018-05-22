@@ -1,25 +1,29 @@
 package com.example.benjvdb.warframetracker
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
+import android.widget.TextView
+import java.io.FileInputStream
 
+/**
+ * Created by Benj VDB on 22/05/2018.
+ */
+class active_triggers : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-class Add_Trigger_1 : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
-    lateinit var mDrawerlayout: DrawerLayout
+    private lateinit var mDrawerlayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_trigger_1)
+        setContentView(R.layout.active_triggers)
 
         var toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -31,18 +35,32 @@ class Add_Trigger_1 : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         var navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
-        configureAlertButton()
+        displayTriggers()
     }
 
-    fun configureAlertButton() {
-        var AlertButton: Button = findViewById(R.id.Alerts)
-        AlertButton.setOnClickListener {
-            startActivity(Intent(this, Add_Trigger_2::class.java))
-        }
+    fun displayTriggers() {
+        var TriggerTextView: TextView = findViewById(R.id.Triggers_Text)
+        var testText = "\n\nA: 1-99, anything\n\nI: 30-40, nitain"
+        val path = this.filesDir
+        var TriggerFile = WarframeUtility.setupFilePath(path)
+        var TriggerText : String
 
-        var InvasionButton: Button = findViewById(R.id.Invasions)
-        InvasionButton.setOnClickListener {
-            startActivity(Intent(this, Add_Trigger_2b::class.java))
+        try { TriggerText = FileInputStream(TriggerFile)?.bufferedReader()?.use{ it?.readText() } }
+        catch(e: Exception) { TriggerText = "No active triggers found" }
+
+        TriggerTextView.setText(TriggerText)
+        deleteTriggers()
+    }
+
+    fun deleteTriggers() {
+        val path = this.filesDir
+        var TriggerFile = WarframeUtility.setupFilePath(path)
+        var deleteButton: Button = findViewById(R.id.at_del_trigger)
+
+        deleteButton.setOnClickListener {
+            TriggerFile.delete()
+            finish()
+            startActivity(intent)
         }
     }
 

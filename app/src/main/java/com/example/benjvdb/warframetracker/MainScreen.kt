@@ -9,7 +9,7 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-
+import android.widget.Button
 
 class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,9 +26,17 @@ class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelected
         actionbar?.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp)
 
         mDrawerlayout = findViewById(R.id.drawer_layout)
-
         var navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
+
+        configureTriggerButton()
+    }
+
+    fun configureTriggerButton() {
+        var TriggerButton: Button = findViewById(R.id.hs_add_trigger)
+        TriggerButton.setOnClickListener {
+            startActivity(Intent(this, Add_Trigger_1::class.java))
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -42,14 +50,21 @@ class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelected
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_triggers -> {
-                val intent = Intent(this, Add_Trigger_1::class.java)
+        return when (item.itemId) {
+            R.id.nav_events -> {
+                val intent = Intent(this, MainScreen::class.java)
+                mDrawerlayout.closeDrawer(GravityCompat.START)
                 startActivity(intent)
-                return true
+                true
+            }
+            R.id.nav_triggers -> {
+                val intent = Intent(this, active_triggers::class.java)
+                mDrawerlayout.closeDrawer(GravityCompat.START)
+                startActivity(intent)
+                true
             }
             else -> {
-                return false
+                false
             }
         }
     }

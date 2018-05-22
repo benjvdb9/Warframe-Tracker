@@ -27,7 +27,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:background="#616161"
-            android:text="Events"
+            android:text="@string/Blank"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -49,82 +49,94 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/Alarm_contentText1"
+                <TextView
+                    android:id="@+id/textView2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Between lvl:" />
+                    android:layout_height="41dp"
+                    android:text="@string/LVLrange"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="51dp">
 
-                    <Spinner
+                    <EditText
                         android:id="@+id/Alarm_lvlMin"
                         android:layout_width="94dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="63dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="16dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
+                        android:ems="10"
+                        android:inputType="number"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints" />
+                        android:layout_marginLeft="16dp"
+                        android:gravity="end"
+                        android:text="1" />
 
                     <TextView
                         android:id="@+id/Alarm_and"
-                        :layout_centerInParent="true"
                         android:layout_width="30dp"
                         android:layout_height="20dp"
+                        android:layout_centerInParent="true"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:text="And"
+                        android:text="@string/AND"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/Alarm_lvlMax"
-                        app:layout_constraintStart_toEndOf="@+id/Alarm_lvlMin"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintStart_toEndOf="@+id/Alarm_lvlMin" />
 
-                    <Spinner
+                    <EditText
                         android:id="@+id/Alarm_lvlMax"
                         android:layout_width="94dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="63dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_marginTop="8dp"
+                        android:ems="10"
+                        android:inputType="number"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        android:layout_marginRight="8dp"
+                        android:gravity="end"
+                        android:text="99" />
+
                 </android.support.constraint.ConstraintLayout>
 
-                <EditText
-                    android:id="@+id/Alarm_contentText2"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="" />
+                    android:layout_height="70dp"
+                    android:text="@string/Search"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:gravity="bottom"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="@string/Blank"/>
 
                 <EditText
-                    android:id="@+id/Alarm_contentText3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Looking for:" />
+                    android:id="@+id/TriggerSearch"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_black_border"
+                    android:text="anything"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_horizontal"/>
 
             </LinearLayout>
 
         </ScrollView>
 
         <Button
-            android:id="@+id/hs_add_trigger"
+            android:id="@+id/at_add_trigger"
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_marginBottom="8dp"
@@ -132,7 +144,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/ic_rounded_button"
-            android:text="Add Trigger"
+            android:text="@string/Add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

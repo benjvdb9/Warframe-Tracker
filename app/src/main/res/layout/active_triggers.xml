@@ -12,51 +12,60 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/Alerts"
-            android:layout_width="283dp"
-            android:layout_height="76dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/Alerts"
-            android:background="#616161"
-            app:layout_constraintBottom_toTopOf="@+id/Invasions"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <Button
-            android:id="@+id/Invasions"
-            android:layout_width="283dp"
-            android:layout_height="75dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/Invasions"
-            android:background="#616161"
-            app:layout_constraintBottom_toTopOf="@+id/Extractors"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Alerts" />
-
-        <Button
-            android:id="@+id/Extractors"
-            android:layout_width="283dp"
-            android:layout_height="72dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/Extractors"
-            android:background="#616161"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Invasions" />
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+        <Button
+            android:id="@+id/at_Triggers"
+            android:layout_width="283dp"
+            android:layout_height="75dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:background="#616161"
+            android:text="@string/Triggers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <ScrollView
+            android:id="@+id/at_Trigger_Scroll"
+            android:layout_width="283dp"
+            android:layout_height="306dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="#F5F5F5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/at_Triggers">
+
+            <TextView
+                android:id="@+id/Triggers_Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Blank" />
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/at_del_trigger"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_rounded_button"
+            android:text="@string/Del"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/at_Trigger_Scroll"
+            app:layout_constraintVertical_bias="0.462" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -66,7 +75,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu= "@menu/drawer_view" >
+        app:menu="@menu/drawer_view">
 
     </android.support.design.widget.NavigationView>
 

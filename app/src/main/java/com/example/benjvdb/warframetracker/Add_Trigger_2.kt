@@ -8,18 +8,19 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
+import android.widget.TextView
 
 
-class Add_Trigger_1 : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+open class Add_Trigger_2 : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var mDrawerlayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_trigger_1)
+        setContentView(R.layout.add_trigger_2)
 
         var toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -31,19 +32,34 @@ class Add_Trigger_1 : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         var navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
-        configureAlertButton()
+        registerEvents()
+        addTrigger()
     }
 
-    fun configureAlertButton() {
-        var AlertButton: Button = findViewById(R.id.Alerts)
-        AlertButton.setOnClickListener {
-            startActivity(Intent(this, Add_Trigger_2::class.java))
-        }
+    open fun registerEvents() {
+        val Title: TextView = findViewById(R.id.at_Events)
+        Title.setText("ALERTS")
+    }
 
-        var InvasionButton: Button = findViewById(R.id.Invasions)
-        InvasionButton.setOnClickListener {
-            startActivity(Intent(this, Add_Trigger_2b::class.java))
+    fun addTrigger() {
+        var AddButton: Button = findViewById(R.id.at_add_trigger)
+        AddButton.setOnClickListener {
+            val path = this.filesDir
+            val TriggerFile = WarframeUtility.setupFilePath(path)
+            val TriggerInfo = getTriggerInfo()
+            TriggerFile.appendText(TriggerInfo)
+            Log.d("TriggerInfo", TriggerInfo)
+            startActivity(Intent(this, active_triggers::class.java))
         }
+    }
+
+    open fun getTriggerInfo() : String {
+        val minLVL: TextView = findViewById(R.id.Alarm_lvlMin)
+        val maxLVL: TextView = findViewById(R.id.Alarm_lvlMax)
+        val Search: TextView = findViewById(R.id.TriggerSearch)
+
+        val TriggerInfo = "A: ${minLVL.text}-${maxLVL.text}, ${Search.text}\n\n"
+        return TriggerInfo
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -60,13 +76,13 @@ class Add_Trigger_1 : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         return when (item.itemId) {
             R.id.nav_events -> {
                 val intent = Intent(this, MainScreen::class.java)
-                mDrawerlayout.closeDrawer(GravityCompat.START)
+                mDrawerlayout.openDrawer(GravityCompat.START)
                 startActivity(intent)
                 true
             }
             R.id.nav_triggers -> {
                 val intent = Intent(this, active_triggers::class.java)
-                mDrawerlayout.closeDrawer(GravityCompat.START)
+                mDrawerlayout.openDrawer(GravityCompat.START)
                 startActivity(intent)
                 true
             }

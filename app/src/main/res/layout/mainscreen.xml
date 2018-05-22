@@ -27,7 +27,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:background="#616161"
-            android:text="Events"
+            android:text="@string/Events"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -60,7 +60,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/ic_rounded_button"
-            android:text="Add Trigger"
+            android:text="@string/Add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

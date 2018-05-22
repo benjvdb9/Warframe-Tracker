@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Warframe Tracker</string>
+    <string name="Events">Events</string>
+    <string name="Add">Add Triggers</string>
+    <string name="Del">Delete Triggers</string>
+    <string name="Alerts">Alerts</string>
+    <string name="Invasions">Invasions</string>
+    <string name="Extractors">Extractors</string>
+    <string name="LVLrange">Between lvl:</string>
+    <string name="AND">And</string>
+    <string name="Search">Searching for:</string>
+    <string name="Triggers">Active triggers</string>
+    <string name="Blank"></string>
 </resources>
