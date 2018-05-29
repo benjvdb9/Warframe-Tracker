@@ -8,9 +8,10 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
-
+import okhttp3.*
 class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var mDrawerlayout: DrawerLayout
@@ -30,6 +31,7 @@ class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelected
         navigationView.setNavigationItemSelectedListener(this)
 
         configureTriggerButton()
+        //getCurrentAlerts()
     }
 
     fun configureTriggerButton() {
@@ -38,6 +40,17 @@ class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelected
             startActivity(Intent(this, Add_Trigger_1::class.java))
         }
     }
+
+    /*fun getCurrentAlerts() {
+        val client = OkHttpClient()
+        val request = Request.Builder().
+                url("http://content.ps4.warframe.com/dynamic/worldState.php").build()
+
+        val response = client.newCall(request).execute()
+        val warframe_body = response.body()?.string()
+
+        Log.d("WarframeBody", warframe_body)
+    }*/
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
