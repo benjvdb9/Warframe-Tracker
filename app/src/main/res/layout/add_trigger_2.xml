@@ -54,8 +54,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="41dp"
                     android:text="@string/LVLrange"
-                    android:textStyle="bold"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -66,16 +66,16 @@
                         android:layout_width="94dp"
                         android:layout_height="63dp"
                         android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="16dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:ems="10"
+                        android:gravity="end"
                         android:inputType="number"
+                        android:text="1"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginLeft="16dp"
-                        android:gravity="end"
-                        android:text="1" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/Alarm_and"
@@ -96,40 +96,40 @@
                         android:layout_height="63dp"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
                         android:layout_marginTop="8dp"
                         android:ems="10"
+                        android:gravity="end"
                         android:inputType="number"
+                        android:text="99"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginRight="8dp"
-                        android:gravity="end"
-                        android:text="99" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </android.support.constraint.ConstraintLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
+                    android:gravity="bottom"
                     android:text="@string/Search"
-                    android:textStyle="bold"
                     android:textSize="30sp"
-                    android:gravity="bottom"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:text="@string/Blank"/>
+                    android:text="@string/Blank" />
 
                 <EditText
                     android:id="@+id/TriggerSearch"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
                     android:background="@drawable/ic_black_border"
-                    android:text="anything"
                     android:gravity="center"
-                    android:textSize="20sp"
-                    android:layout_gravity="center_horizontal"/>
+                    android:text="anything"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 

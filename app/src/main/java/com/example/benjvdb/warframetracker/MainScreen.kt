@@ -57,9 +57,11 @@ class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelected
 
             var response = client.newCall(request).execute()
             var warframe_body = response.body()!!.string()
-            var warframe_dict = Parser().parse(warframe_body) as JSONObject
+            val stringbuilder : StringBuilder = StringBuilder(warframe_body)
+            var warframe_dict = Parser().parse(stringbuilder) as JSONObject
 
-            event_view.text = warframe_dict["Version"].toString()
+            var test = "HELLO"
+            Log.d("Body", warframe_dict["Version"].toString())
         }
     }
 
