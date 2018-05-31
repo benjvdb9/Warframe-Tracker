@@ -38,15 +38,20 @@ class active_triggers : AppCompatActivity(), NavigationView.OnNavigationItemSele
         displayTriggers()
     }
 
-    fun displayTriggers() {
+    private fun displayTriggers() {
         var triggerTextView: TextView = findViewById(R.id.Triggers_Text)
         val path = this.filesDir
         var triggerFile = WarframeUtility.setupFilePath(path)
         var triggerText : String
 
-        try { triggerText = FileInputStream(triggerFile).bufferedReader().use{ it.readText() } }
-        catch(e: Exception) { triggerText = "No active triggers found" }
+        triggerText = try {
+            FileInputStream(triggerFile).bufferedReader().readText()
+        }
+        catch(e: Exception) {
+            "No active triggers found"
+        }
 
+        //triggerText = "No active triggers found"
         triggerTextView.setText(triggerText)
         deleteTriggers()
     }

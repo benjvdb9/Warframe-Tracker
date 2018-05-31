@@ -1,14 +1,8 @@
 package com.example.benjvdb.warframetracker
 
-import android.content.Context
-import android.content.Intent
-import android.support.design.widget.NavigationView
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
-import android.view.MenuItem
+import com.beust.klaxon.Parser
+import org.json.JSONObject
 import java.io.File
 
 /**
@@ -44,6 +38,10 @@ class WarframeUtility : AppCompatActivity() {
             WFDirectory.mkdirs()
             val file = File(WFDirectory, "Active_Triggers.txt")
             return file
+        }
+
+        fun parseDictionaryRough(dict: String) : JSONObject {
+            return Parser().parse(dict) as JSONObject
         }
     }
 }
