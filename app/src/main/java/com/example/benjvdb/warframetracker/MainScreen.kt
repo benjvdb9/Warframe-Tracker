@@ -56,24 +56,30 @@ class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelected
                     url("http://content.ps4.warframe.com/dynamic/worldState.php").build()
 
             var response = client.newCall(request).execute()
-            var warframe_body = response.body()!!.string()
+            var warframe_bod = response.body()
+            var warframe_body = warframe_bod?.string()
             val stringbuilder : StringBuilder = StringBuilder(warframe_body)
             var warframe_dict = Parser().parse(stringbuilder) as JsonObject
 
             var alerts = warframe_dict["Alerts"] as JsonArray<*>
             var alert1 = alerts[0] as JsonObject
             var missioninfo = alert1["MissionInfo"] as JsonObject
-            val minLVL = missioninfo["minEnemyLevel"] as JsonObject
+            val minLVL = missioninfo["minEnemyLevel"]
             val maxLVL = missioninfo["maxEnemyLevel"]
             val rewards= missioninfo["missionReward"] as JsonObject
-            var itemRewards = "Nothing"
 
-            try {
-                var itemRewards = rewards["items"]
-            } catch(e: Error) {}
-            try {
-                var itemRewards2 = rewards["countedItems"] as JsonArray<*>
-            } catch (e: Error) {}
+            var itemRewards = "void"
+            if (rewards.containsKey("countedItems")) {
+                itemRewards = (((rewards["countedItems"] as JsonArray<*>)[0]
+                        as JsonObject)["ItemType"] as String).substringAfterLast("/")
+                var itemAmount = ((rewards["countedItems"] as JsonArray<*>)[0]
+                        as JsonObject)["ItemCount"]
+            } else if (rewards.containsKey("items")) {
+                itemRewards = ((rewards["items"] as JsonArray<*>)[0] as String).
+                        substringAfterLast("/")
+            } else {
+                itemRewards = "None"
+            }
 
             val scrollView : TextView = findViewById(R.id.hs_Event_TextView)
             var text = "A: $minLVL-$maxLVL, $itemRewards\n\n"
