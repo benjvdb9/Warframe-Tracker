@@ -61,28 +61,32 @@ class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelected
             val stringbuilder : StringBuilder = StringBuilder(warframe_body)
             var warframe_dict = Parser().parse(stringbuilder) as JsonObject
 
+            var text = ""
             var alerts = warframe_dict["Alerts"] as JsonArray<*>
-            var alert1 = alerts[0] as JsonObject
-            var missioninfo = alert1["MissionInfo"] as JsonObject
-            val minLVL = missioninfo["minEnemyLevel"]
-            val maxLVL = missioninfo["maxEnemyLevel"]
-            val rewards= missioninfo["missionReward"] as JsonObject
+            for (alert in alerts) {
+                alert as JsonObject
+                var missioninfo = alert["MissionInfo"] as JsonObject
+                val minLVL = missioninfo["minEnemyLevel"]
+                val maxLVL = missioninfo["maxEnemyLevel"]
+                val rewards= missioninfo["missionReward"] as JsonObject
 
-            var itemRewards = "void"
-            when {
-                rewards.containsKey("countedItems") -> {
-                    itemRewards = (((rewards["countedItems"] as JsonArray<*>)[0]
-                            as JsonObject)["ItemType"] as String).substringAfterLast("/")
-                    var itemAmount = ((rewards["countedItems"] as JsonArray<*>)[0]
-                            as JsonObject)["ItemCount"]
+                var itemRewards = "void"
+                when {
+                    rewards.containsKey("countedItems") -> {
+                        itemRewards = (((rewards["countedItems"] as JsonArray<*>)[0]
+                                as JsonObject)["ItemType"] as String).substringAfterLast("/")
+                        var itemAmount = ((rewards["countedItems"] as JsonArray<*>)[0]
+                                as JsonObject)["ItemCount"]
+                    }
+                    rewards.containsKey("items") -> itemRewards = ((rewards["items"]
+                            as JsonArray<*>)[0] as String).substringAfterLast("/")
+                    else -> itemRewards = "None"
                 }
-                rewards.containsKey("items") -> itemRewards = ((rewards["items"]
-                        as JsonArray<*>)[0] as String).substringAfterLast("/")
-                else -> itemRewards = "None"
+
+                text = text.plus("A: $minLVL-$maxLVL, $itemRewards\n\n")
             }
 
             val scrollView : TextView = findViewById(R.id.hs_Event_TextView)
-            var text = "A: $minLVL-$maxLVL, $itemRewards\n\n"
             scrollView.setText(text)
         }
     }
