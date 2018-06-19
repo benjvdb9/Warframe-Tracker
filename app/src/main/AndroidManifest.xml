@@ -14,7 +14,8 @@
         android:theme="@style/BenTheme" >
         <activity android:name=".MainScreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"
+                    android:windowSoftInputMode="adjustPan" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -22,8 +23,10 @@
         <activity android:name=".Add_Trigger_1"
             tools:ignore="DuplicateActivity" />
         <activity android:name=".Add_Trigger_2"
+            android:windowSoftInputMode="adjustPan"
             tools:ignore="DuplicateActivity" />
         <activity android:name=".Add_Trigger_2b"
+            android:windowSoftInputMode="adjustPan"
             tools:ignore="DuplicateActivity" />
         <activity android:name=".active_triggers"
             tools:ignore="DuplicateActivity" />
