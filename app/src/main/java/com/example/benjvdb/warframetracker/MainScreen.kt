@@ -69,16 +69,16 @@ class MainScreen : AppCompatActivity (), NavigationView.OnNavigationItemSelected
             val rewards= missioninfo["missionReward"] as JsonObject
 
             var itemRewards = "void"
-            if (rewards.containsKey("countedItems")) {
-                itemRewards = (((rewards["countedItems"] as JsonArray<*>)[0]
-                        as JsonObject)["ItemType"] as String).substringAfterLast("/")
-                var itemAmount = ((rewards["countedItems"] as JsonArray<*>)[0]
-                        as JsonObject)["ItemCount"]
-            } else if (rewards.containsKey("items")) {
-                itemRewards = ((rewards["items"] as JsonArray<*>)[0] as String).
-                        substringAfterLast("/")
-            } else {
-                itemRewards = "None"
+            when {
+                rewards.containsKey("countedItems") -> {
+                    itemRewards = (((rewards["countedItems"] as JsonArray<*>)[0]
+                            as JsonObject)["ItemType"] as String).substringAfterLast("/")
+                    var itemAmount = ((rewards["countedItems"] as JsonArray<*>)[0]
+                            as JsonObject)["ItemCount"]
+                }
+                rewards.containsKey("items") -> itemRewards = ((rewards["items"]
+                        as JsonArray<*>)[0] as String).substringAfterLast("/")
+                else -> itemRewards = "None"
             }
 
             val scrollView : TextView = findViewById(R.id.hs_Event_TextView)
